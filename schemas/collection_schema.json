@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "collection",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": ["collection"]
+    },
+    "organization": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "images": {
+      "type": "object",
+      "properties": {
+        "aspect16x9": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "aspect16x9"
+      ]
+    },
+    "releaseDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "relationships": {
+      "type": "object",
+      "properties": {
+        "entities": {
+          "type": "object",
+          "properties": {
+            "links": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "self"
+              ]
+            },
+            "data": {
+              "type": "array",
+              "uniqueItems": true,
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "type"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": ["video"]
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "links",
+            "data"
+          ]
+        }
+      },
+      "required": []
+    }
+  },
+  "required": [
+    "type",
+    "organization",
+    "title",
+    "description",
+    "images",
+    "releaseDate",
+    "relationships"
+  ]
+}

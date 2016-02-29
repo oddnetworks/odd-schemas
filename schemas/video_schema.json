@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "video",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": ["video"]
+    },
+    "organization": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "images": {
+      "type": "object",
+      "properties": {
+        "aspect16x9": {
+          "type": "string",
+          "minLength": 1,
+          "default": "http://dummyimage.com/16:9x1920&text=placeholder"
+        },
+        "aspect4x3": {
+          "type": "string",
+          "minLength": 1,
+          "default": "http://dummyimage.com/4:3x1440&text=placeholder"
+        },
+        "aspect3x4": {
+          "type": "string",
+          "minLength": 1,
+          "default": "http://dummyimage.com/3:4x1920&text=placeholder"
+        },
+        "aspect1x1": {
+          "type": "string",
+          "minLength": 1,
+          "default": "http://dummyimage.com/1:1x1920&text=placeholder"
+        },
+        "aspect2x3": {
+          "type": "string",
+          "minLength": 1,
+          "default": "http://dummyimage.com/2:3x1920&text=placeholder"
+        }
+      },
+      "required": [
+        "aspect16x9"
+      ]
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ads": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "url"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "default": ""
+    },
+    "streams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "videoHeight": {
+            "type": "number"
+          },
+          "videoWidth": {
+            "type": "number"
+          },
+          "streamType": {
+            "type": "string"
+          },
+          "audioBitrate": {
+            "type": "number"
+          },
+          "fileSize": {
+            "type": "number"
+          },
+          "videoCodec": {
+            "type": "string"
+          },
+          "averageVideoBitrate": {
+            "type": "number"
+          },
+          "muxingFormat": {
+            "type": "string"
+          },
+          "audioCodec": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "duration": {
+      "type": "number"
+    },
+    "releaseDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "organization",
+    "title",
+    "images",
+    "duration"
+  ]
+}

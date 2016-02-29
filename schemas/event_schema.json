@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "event",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": ["event"]
+    },
+    "organization": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ical": {
+      "type": "object",
+      "properties": {
+        "dtstart": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "dtstart"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "organization",
+    "title",
+    "url",
+    "ical"
+  ]
+}

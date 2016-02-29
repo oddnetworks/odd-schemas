@@ -1,0 +1,39 @@
+{
+  "name": "@oddnetworks/odd-schemas",
+  "version": "3.0.0",
+  "description": "JSON schemas, validation, and test data generation",
+  "main": "odd-schemas.js",
+  "scripts": {
+    "test": "npm run xo && npm run tape",
+    "tape": "tape 'test/**/*_test.js' | tap-spec",
+    "xo": "xo"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oddnetworks/odd-schemas.git"
+  },
+  "keywords": [
+    "schema",
+    "validation",
+    "generate"
+  ],
+  "dependencies": {
+    "glob": "^5.0.14",
+    "json-from-schema": "^1.7.0",
+    "json-schema-defaults": "^0.1.1",
+    "jsonschema": "^1.0.2",
+    "lodash": "^4.2.1",
+    "node-uuid": "^1.4.3"
+  },
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.0.0",
+    "xo": "^0.12.1"
+  },
+  "author": "Dan Pallas",
+  "bugs": {
+    "url": "https://github.com/oddnetworks/odd-schemas/issues"
+  },
+  "homepage": "https://github.com/oddnetworks/odd-schemas"
+}
